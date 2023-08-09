@@ -376,12 +376,12 @@ function Lapotronic.new(proxy, name)
 	local obj = GenericGTBlock.new(proxy, name)
 
 	local config = {
-		-- "§a1 199 934§r EU / §e1 232 768§r EU"
-		STORED = {line = 2, pattern = "§.(.+)§.+/.+$"},
-		CAPACITY = {line = 3, pattern = "^.+/.+§.(.+)§.+$"},
-		-- "32 768 EU/t"
-		INPUT = {line = 7, pattern = "^(.+)%sEU/t$"},
-		OUTPUT = {line = 8, pattern = "^(.+)%sEU/t$"}
+		-- "Used Capacity: 84 827 493 271" 
+		STORED = {line = 3, pattern = "^Used Capacity: (.+)EU$"},
+		CAPACITY = {line = 4, pattern = "^Total Capacity: (.+)EU$"},
+		-- "Avg EU IN: 91 352 912 896 (last 5 seconds)",
+		INPUT = {line = 7, pattern = "Avg EU IN: (%d[%d,]*) %(last 5 seconds%)"},
+		OUTPUT = {line = 8, pattern = "Avg EU OUT: (%d[%d,]*) %(last 5 seconds%)"},
 	}
 
 	function obj.runMonitoring()
